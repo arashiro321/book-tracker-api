@@ -14,4 +14,10 @@ routes.post('/registration', controllerUsers.Register)
 
 routes.post('/bookregistration', controllerBooks.RegisterBook)
 
+routes.put('/bookupdatestatus', controllerBooks.UpdateBookStatus)
+
+routes.put('/bookupdatenote', controllerBooks.UpdateBookNote)
+
+routes.delete('/deletebook', controllerBooks.DeleteBook)
+
 module.exports = routes

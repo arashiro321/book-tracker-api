@@ -5,10 +5,14 @@ module.exports = {
     async List(req, res) {
         try {
             const booksStatus = await ModelBooksStatus.findAll()
-            console.log(booksStatus)
-            return res.json(booksStatus)
+            console.log(JSON.stringify(booksStatus))
+            if(booksStatus.length !== 0)
+            return res.json({booksStatus})
+        else
+            return res.json({error: "You do not have any book status registered", status: 500})        
+        
         } catch (er) {
-            return console.error("Error in the List: ", er)
+            return res.json({error: "An error occurred while creating the account: " + er, status: 500})
         }
     }
 }
